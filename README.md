@@ -1,8 +1,10 @@
 # JPMessageHandler
 
+Handles and shows status messages
+
 ## Installation
 
-_**Important note if your project doesn't use ARC**: you must add the `-fobjc-arc` compiler flag to `JPMessageHandler.m` in Target Settings > Build Phases > Compile Sources._
+_**Important note if your project doesn't use ARC**: you must add the `-fobjc-arc` compiler flag to `JPMessageHandler.m`, `JPMessage.m`, `JPMessageCell.m` and `XButton.m` in Target Settings > Build Phases > Compile Sources._
 
 * Drag the `JPMessageHandler/JPMessageHandler` folder into your project.
 * Add the **QuartzCore** framework to your project.
