@@ -1,6 +1,6 @@
 # JPMessageHandler
 
-Handles and shows status messages
+Handles and shows status messages on iOS devices.
 
 ## Installation
 
@@ -26,6 +26,10 @@ self.messageHandler = [[JPMessageHandler alloc] initWithSuperview:self.view];
 
 [self.messageHandler showMessage:@"Long Error Message (min 4sec)" type:JPMessageTypeError minDuration:4.0 maxDuration:10.0];
 ```
+
+## Example
+
+As an example see the [iOS BBBike app](https://itunes.apple.com/us/app/bbbike/id555616117?mt=8).
 
 ## Credits
 
