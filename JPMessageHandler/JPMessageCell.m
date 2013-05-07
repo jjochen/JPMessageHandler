@@ -46,6 +46,10 @@
 {
     self.clipsToBounds = NO;
     
+    self.autoresizesSubviews = YES;
+    self.contentView.backgroundColor = [UIColor clearColor];
+    self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.contentView.autoresizesSubviews = YES;
     
     UIColor *shadowColor = [UIColor colorWithWhite:0 alpha:1];
     CGSize shadowOffset = CGSizeMake(0, 2);
@@ -158,7 +162,7 @@
 #pragma mark - Layout
 
 - (void)layoutSubviews
-{
+{    
     CGRect iconFrame;
     switch (self.message.type) {
         case JPMessageTypePlain:
@@ -167,19 +171,19 @@
         case JPMessageTypeLoading:
             iconFrame.size = self.activityIndicator.frame.size;
             iconFrame.origin.x = LEFT_MARGIN;
-            iconFrame.origin.y = (self.frame.size.height - iconFrame.size.height)/2;
+            iconFrame.origin.y = (self.contentView.bounds.size.height - iconFrame.size.height)/2;
             self.activityIndicator.frame = iconFrame;
             break;
         case JPMessageTypeInfo:
             iconFrame.size = self.warningImage.frame.size;
             iconFrame.origin.x = LEFT_MARGIN;
-            iconFrame.origin.y = (self.frame.size.height - iconFrame.size.height)/2;
+            iconFrame.origin.y = (self.contentView.bounds.size.height - iconFrame.size.height)/2;
             self.warningImage.frame = iconFrame;
             break;
         case JPMessageTypeError:
             iconFrame.size = self.errorImage.frame.size;
             iconFrame.origin.x = LEFT_MARGIN;
-            iconFrame.origin.y = (self.frame.size.height - iconFrame.size.height)/2;
+            iconFrame.origin.y = (self.contentView.bounds.size.height - iconFrame.size.height)/2;
             self.errorImage.frame = iconFrame;
             break;
     }
@@ -213,8 +217,8 @@
     CGRect messageFrame;
     messageFrame.origin.y = 0;
     messageFrame.origin.x = iconFrame.size.width + iconFrame.origin.x + LEFT_MARGIN;
-    messageFrame.size.height = self.frame.size.height;
-    messageFrame.size.width = self.frame.size.width - messageFrame.origin.x - INNER_MARGIN;
+    messageFrame.size.height = self.contentView.bounds.size.height;
+    messageFrame.size.width = self.contentView.bounds.size.width - messageFrame.origin.x - INNER_MARGIN;
     
     self.textLabel.frame = messageFrame;
     
@@ -222,7 +226,7 @@
     CGRect xButtonFrame;
     xButtonFrame.size.height = self.frame.size.height;
     xButtonFrame.size.width = xButtonFrame.size.height;
-    xButtonFrame.origin.x = self.frame.size.width - xButtonFrame.size.width - 2;
+    xButtonFrame.origin.x = self.contentView.bounds.size.width - xButtonFrame.size.width - 2;
     xButtonFrame.origin.y = 0;
     self.xButton.circleRadius = xButtonFrame.size.height * 0.6;
     self.xButton.frame = xButtonFrame;
