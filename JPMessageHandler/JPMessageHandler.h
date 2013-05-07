@@ -16,7 +16,7 @@
 
 
 @property (nonatomic, assign) id<JPMessageHandlerDelegate> delegate;
-
+@property (nonatomic, assign) CGFloat marginBottom;
 
 - (id)initWithSuperview:(UIView *)superview;
 

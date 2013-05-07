@@ -10,11 +10,10 @@
 #import "JPMessageHandler.h"
 #import "JPMessageCell.h"
 
-#define VIEW_DEBUG 1
+#define VIEW_DEBUG 0
 
 #define MIN_DURATION 0.0f
 #define MAX_DURATION 5.0f
-
 
 #define ROW_HEIGHT 25
 #define ROW_HEIGHT_IPAD 35
@@ -62,6 +61,23 @@ static NSString *cellIdentifier = @"MessageCell";
     
     return self;
 }
+
+- (void)setMarginBottom:(CGFloat)marginBottom
+{
+    _marginBottom = marginBottom;
+    [self adjustFrame];
+}
+
+- (void)adjustFrame {
+    if (self.messageTableView.superview) {
+        CGRect frame = self.messageTableView.superview.bounds;
+        frame.origin.y = frame.size.height - self.marginBottom;
+        frame.size.height = 0.0f;
+        
+        self.messageTableView.frame = frame;
+    }
+}
+
 
 #pragma mark - messge queue
 - (JPMessageID)showMessage:(NSString *)text type:(JPMessageType)type
