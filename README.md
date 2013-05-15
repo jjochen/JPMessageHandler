@@ -27,6 +27,28 @@ self.messageHandler = [[JPMessageHandler alloc] initWithSuperview:self.view];
 [self.messageHandler showMessage:@"Long Error Message (min 4sec)" type:JPMessageTypeError minDuration:4.0 maxDuration:10.0];
 ```
 
+## Customization
+
+You can customize the following properties of `JPMessageHandler`:
+
+``` objective-c
+@property (nonatomic, assign) CGFloat rowHeight;
+@property (nonatomic, assign) UITableViewCellSeparatorStyle separatorStyle;
+@property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, assign) CGFloat marginBottom;
+@property (nonatomic, strong) UIColor *messageShadowColor;
+@property (nonatomic, assign) CGSize messageShadowOffset;
+@property (nonatomic, strong) NSArray *messageGradientColors;
+@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIColor *hideButtonColor;
+@property (nonatomic, strong) UIColor *imageColor;
+@property (nonatomic, assign) NSTimeInterval defaultMinDuration;
+@property (nonatomic, assign) NSTimeInterval defaultMaxDuration;
+```
+
+
 ## Example
 
 As an example see the [iOS BBBike app](https://itunes.apple.com/us/app/bbbike/id555616117?mt=8).

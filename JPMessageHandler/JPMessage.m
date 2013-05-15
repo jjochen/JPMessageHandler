@@ -10,6 +10,9 @@
 #import "JPMessage.h"
 
 @interface JPMessage ()
+{
+    BOOL _onScreen;
+}
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSTimer *minDurationTimer;
 
@@ -27,6 +30,8 @@
     self.maxDuration = kJPMessageDurationNotSet;
     self.messageID = kJPMessageIDNotSet;
     self.text = nil;
+    
+    _onScreen = NO;
     
     return self;
 }
@@ -48,14 +53,14 @@
 
 - (void)didHide
 {
+    _onScreen = NO;
     [self resetTimer];
     [self resetMinDurationTimer];
-    
-    
 }
 
 - (void)didShow
 {
+    _onScreen = YES;
     self.showTime = [NSDate date];
     [self hideAfterMaxDurationOnScreen];
     [self startMinDurationTimer];
@@ -145,7 +150,7 @@
 
 - (void)timerFired
 {
-	if (self.delegate) {
+	if (self.onScreen && self.delegate) {
 		if ([self.delegate respondsToSelector:@selector(messageTimerFired:)]) {
 			[self.delegate messageTimerFired:self];
 		}

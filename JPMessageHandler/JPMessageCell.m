@@ -11,12 +11,20 @@
 #import <QuartzCore/QuartzCore.h>
 #import "JPMessage.h"
 #import "XButton.h"
+#import "UIImage+Tinting.h"
 
 
 #define LEFT_MARGIN 12
 #define INNER_MARGIN 20
 
 @interface JPMessageCell ()
+{
+    JPMessage *_message;
+    UIColor *_shadowColor;
+    CGSize _shadowOffset;
+    BOOL _xButtonVisible;
+    UIColor *_imageColor;
+}
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UIImageView *warningImage;
@@ -45,14 +53,12 @@
 - (void)initialization
 {
     self.clipsToBounds = NO;
+    self.backgroundColor = [UIColor clearColor];
     
     self.autoresizesSubviews = YES;
     self.contentView.backgroundColor = [UIColor clearColor];
     self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.contentView.autoresizesSubviews = YES;
-    
-    UIColor *shadowColor = [UIColor colorWithWhite:0 alpha:1];
-    CGSize shadowOffset = CGSizeMake(0, 2);
     
     self.errorImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"message_error.png"]];
     self.errorImage.layer.opacity = 1;
@@ -60,8 +66,6 @@
     self.errorImage.layer.shadowRadius = 0;
     self.errorImage.layer.shouldRasterize = YES;
     self.errorImage.layer.rasterizationScale = [UIScreen mainScreen].scale;
-    self.errorImage.layer.shadowColor = shadowColor.CGColor;
-    self.errorImage.layer.shadowOffset = shadowOffset;
     self.errorImage.clipsToBounds = NO;
     
     self.warningImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"message_warning.png"]];
@@ -70,8 +74,6 @@
     self.warningImage.layer.shadowRadius = 0;
     self.warningImage.layer.shouldRasterize = YES;
     self.warningImage.layer.rasterizationScale = [UIScreen mainScreen].scale;
-    self.warningImage.layer.shadowColor = shadowColor.CGColor;
-    self.warningImage.layer.shadowOffset = shadowOffset;
     self.warningImage.clipsToBounds = NO;
     
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
@@ -81,23 +83,15 @@
     self.activityIndicator.layer.shadowRadius = 0;
     self.activityIndicator.layer.shouldRasterize = YES;
     self.activityIndicator.layer.rasterizationScale = [UIScreen mainScreen].scale;
-    self.activityIndicator.layer.shadowColor = shadowColor.CGColor;
-    self.activityIndicator.layer.shadowOffset = shadowOffset;
     self.activityIndicator.clipsToBounds = NO;
     
     self.xButton = [[XButton alloc] initWithFrame:CGRectZero];
     self.xButton.color = [UIColor colorWithWhite:0.9 alpha:0.9];
-    self.xButton.shadowColor = [UIColor colorWithWhite:0 alpha:0.9];
-    self.xButton.shadowOffset = CGSizeMake(0, 1);
-    [self.xButton addTarget:self action:@selector(hide) forControlEvents:UIControlEventTouchUpInside];
+    [self.xButton addTarget:self action:@selector(hide:) forControlEvents:UIControlEventTouchUpInside];
     
     self.textLabel.opaque = NO;
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.textLabel.textAlignment = NSTextAlignmentLeft;
-    self.textLabel.textColor = [UIColor colorWithWhite:1 alpha:1];
-    self.textLabel.shadowColor = shadowColor;
-    self.textLabel.shadowOffset = shadowOffset;
-    self.textLabel.font = [UIFont boldSystemFontOfSize:14];
     self.textLabel.adjustsFontSizeToFitWidth = YES;
     
     
@@ -110,23 +104,27 @@
     self.activityIndicator.hidden = YES;
     self.errorImage.hidden = YES;
 
- 
+
     // table view is rotated. Rotate cells back.
     self.transform = CGAffineTransformMakeRotation(M_PI);
     
     
-    CAGradientLayer *gradientLayer = (CAGradientLayer *)self.layer;
-    gradientLayer.colors =
-    @[(id)[UIColor colorWithWhite:0 alpha:0.2].CGColor,
-     (id)[UIColor colorWithWhite:0 alpha:0.4].CGColor];
     
+    /* defaults */
     
-    self.backgroundColor = [UIColor clearColor];
-    
-    
+    self.shadowColor = [UIColor colorWithWhite:0 alpha:1];
+    self.shadowOffset = CGSizeMake(0, 2);
+    self.gradientColors = @[
+                            (id)[UIColor colorWithWhite:0 alpha:0.2].CGColor,
+                            (id)[UIColor colorWithWhite:0 alpha:0.4].CGColor
+                            ];
+    self.textColor = [UIColor colorWithWhite:1 alpha:1];
+    self.font = [UIFont boldSystemFontOfSize:14];
+    self.imageColor = nil;
+    self.hideButtonColor = [UIColor colorWithWhite:1 alpha:0.8];
     self.xButtonVisible = NO;
-    
 }
+
 
 #pragma mark - Properties 
 
@@ -139,6 +137,100 @@
     
     [self setNeedsLayout];
 }
+- (JPMessage *)message
+{
+    return _message;
+}
+
+
+- (void)setShadowColor:(UIColor *)shadowColor
+{
+    _shadowColor = shadowColor;
+
+    self.errorImage.layer.shadowColor = shadowColor.CGColor;
+    self.warningImage.layer.shadowColor = shadowColor.CGColor;
+    self.activityIndicator.layer.shadowColor = shadowColor.CGColor;
+    self.textLabel.shadowColor = shadowColor;
+    self.xButton.shadowColor = shadowColor;
+}
+- (UIColor *)shadowColor
+{
+    return _shadowColor;
+}
+
+- (void)setShadowOffset:(CGSize)shadowOffset
+{
+    _shadowOffset = shadowOffset;
+    
+    self.errorImage.layer.shadowOffset = shadowOffset;
+    self.warningImage.layer.shadowOffset = shadowOffset;
+    self.activityIndicator.layer.shadowOffset = shadowOffset;
+    self.textLabel.shadowOffset = shadowOffset;
+    self.xButton.shadowOffset = shadowOffset;
+}
+- (CGSize)shadowOffset
+{
+    return _shadowOffset;
+}
+
+- (void)setGradientColors:(NSArray *)gradientColors
+{
+    CAGradientLayer *gradientLayer = (CAGradientLayer *)self.layer;
+    gradientLayer.colors = gradientColors;
+}
+- (NSArray *)gradientColors
+{
+    CAGradientLayer *gradientLayer = (CAGradientLayer *)self.layer;
+    return gradientLayer.colors;
+    
+}
+
+- (void)setTextColor:(UIColor *)textColor
+{
+    self.textLabel.textColor = textColor;
+}
+- (UIColor *)textColor
+{
+    return self.textLabel.textColor;
+}
+
+- (void)setFont:(UIFont *)font
+{
+    self.textLabel.font = font;
+}
+- (UIFont *)font
+{
+    return self.textLabel.font;
+}
+
+- (void)setHideButtonColor:(UIColor *)hideButtonColor
+{
+    self.xButton.color = hideButtonColor;
+}
+- (UIColor *)hideButtonColor
+{
+    return self.xButton.color;
+}
+
+- (void)setImageColor:(UIColor *)imageColor
+{
+    if (imageColor != _imageColor) {
+        _imageColor = imageColor;
+        
+        if (imageColor == nil) {
+            self.warningImage.image = [UIImage imageNamed:@"message_warning.png"];
+            self.errorImage.image = [UIImage imageNamed:@"message_error.png"];
+        } else {
+            self.warningImage.image = [UIImage tintedImageNamed:@"message_warning.png" color:imageColor];
+            self.errorImage.image = [UIImage tintedImageNamed:@"message_error.png" color:imageColor];
+        }
+    }
+}
+- (UIColor *)imageColor
+{
+    return _imageColor;
+}
+
 
 - (void)setXButtonVisible:(BOOL)xButtonVisible
 {
@@ -147,7 +239,6 @@
     self.xButton.alpha = xButtonVisible ? 1.0f : 0.0f;
     self.xButton.userInteractionEnabled = xButtonVisible;
 }
-
 - (void)setXButtonVisible:(BOOL)xButtonVisible animated:(BOOL)animated
 {
     if (animated) {
@@ -158,6 +249,10 @@
         self.xButtonVisible = xButtonVisible;
     }
 }
+
+
+
+
 
 #pragma mark - Layout
 
@@ -240,8 +335,10 @@
     
 }
 
-- (void)hide
+- (void)hide:(id)sender
 {
-    [self.message hideAfterMinDurationOnScreen];
+    if (self.message.onScreen) {
+        [self.message hideAfterMinDurationOnScreen];
+    }
 }
 @end

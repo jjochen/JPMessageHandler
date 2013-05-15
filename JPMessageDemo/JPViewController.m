@@ -23,8 +23,32 @@
 {
     [super viewDidLoad];
     
+    
     self.messageHandler = [[JPMessageHandler alloc] initWithSuperview:self.view];
     self.messageHandler.delegate = self;
+    
+    BOOL iPad = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad);
+    CGFloat rowHeight = iPad ? 35 : 27;
+    
+    self.messageHandler.marginBottom = 0;
+    self.messageHandler.backgroundView = nil;
+    self.messageHandler.backgroundColor = [UIColor clearColor];
+    self.messageHandler.rowHeight = rowHeight;
+    self.messageHandler.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.messageHandler.defaultMinDuration = 0;
+    self.messageHandler.defaultMaxDuration = 5;
+    self.messageHandler.font = [UIFont boldSystemFontOfSize:14.0f];
+    self.messageHandler.textColor = [UIColor whiteColor];
+    self.messageHandler.imageColor = nil;
+    self.messageHandler.hideButtonColor = [UIColor colorWithWhite:1 alpha:0.8];
+    self.messageHandler.messageShadowColor = [UIColor blackColor];
+    self.messageHandler.messageShadowOffset = CGSizeMake(0, 2);
+    self.messageHandler.messageGradientColors = @[
+                                                  (id)[UIColor colorWithWhite:0.000 alpha:0.200].CGColor,
+                                                  (id)[UIColor colorWithWhite:0.000 alpha:0.400].CGColor
+                                                  ];
+    
+    
     
     self.loadingMessagID = kJPMessageIDNotSet;
 }

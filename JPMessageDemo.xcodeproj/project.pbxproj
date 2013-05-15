@@ -27,6 +27,7 @@
 		194A2DB21733EC4400742C00 /* message_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 194A2DA91733EC4400742C00 /* message_warning.png */; };
 		194A2DB31733EC4400742C00 /* message_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 194A2DAA1733EC4400742C00 /* message_warning@2x.png */; };
 		194A2DB41733EC4400742C00 /* XButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 194A2DAC1733EC4400742C00 /* XButton.m */; };
+		19574BCF1743999E0087E209 /* UIImage+Tinting.m in Sources */ = {isa = PBXBuildFile; fileRef = 19574BCE1743999D0087E209 /* UIImage+Tinting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,8 @@
 		194A2DAA1733EC4400742C00 /* message_warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_warning@2x.png"; sourceTree = "<group>"; };
 		194A2DAB1733EC4400742C00 /* XButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XButton.h; sourceTree = "<group>"; };
 		194A2DAC1733EC4400742C00 /* XButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XButton.m; sourceTree = "<group>"; };
+		19574BCD1743999D0087E209 /* UIImage+Tinting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tinting.h"; sourceTree = "<group>"; };
+		19574BCE1743999D0087E209 /* UIImage+Tinting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tinting.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				194A2DAA1733EC4400742C00 /* message_warning@2x.png */,
 				194A2DAB1733EC4400742C00 /* XButton.h */,
 				194A2DAC1733EC4400742C00 /* XButton.m */,
+				19574BCD1743999D0087E209 /* UIImage+Tinting.h */,
+				19574BCE1743999D0087E209 /* UIImage+Tinting.m */,
 			);
 			path = JPMessageHandler;
 			sourceTree = SOURCE_ROOT;
@@ -229,6 +234,7 @@
 				194A2DAE1733EC4400742C00 /* JPMessageCell.m in Sources */,
 				194A2DAF1733EC4400742C00 /* JPMessageHandler.m in Sources */,
 				194A2DB41733EC4400742C00 /* XButton.m in Sources */,
+				19574BCF1743999E0087E209 /* UIImage+Tinting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +357,7 @@
 				194A2D731733CC3A00742C00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -15,12 +15,14 @@
 #define MIN_DURATION 0.0f
 #define MAX_DURATION 5.0f
 
-#define ROW_HEIGHT 25
-#define ROW_HEIGHT_IPAD 35
+#define IS_PAD ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+#define ROW_HEIGHT (IS_PAD ? 35 : 25)
 
 
 @interface JPMessageHandler ()
-
+{
+    CGFloat _marginBottom;
+}
 @property (nonatomic, strong) NSMutableArray *messageQueue;
 @property (nonatomic, strong) UITableView *messageTableView;
 
@@ -36,9 +38,9 @@ static NSString *cellIdentifier = @"MessageCell";
     self = [super init];
     if (self == nil) return nil;
     
-    BOOL iPad = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad);
     
     self.messageQueue = [[NSMutableArray alloc] init];
+    
     
     CGRect frame = superview.bounds;
     frame.origin.y = frame.size.height;
@@ -47,37 +49,85 @@ static NSString *cellIdentifier = @"MessageCell";
     self.messageTableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     self.messageTableView.delegate = self;
     self.messageTableView.dataSource = self;
-    self.messageTableView.backgroundView = nil;
-    self.messageTableView.backgroundColor = [UIColor clearColor];
-    self.messageTableView.rowHeight = (iPad) ? ROW_HEIGHT_IPAD : ROW_HEIGHT;
-    self.messageTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.messageTableView.allowsSelection = NO;
     self.messageTableView.transform = CGAffineTransformMakeRotation(-M_PI);
     self.messageTableView.userInteractionEnabled = YES;
     self.messageTableView.scrollEnabled = NO;
     self.messageTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    
     [superview addSubview:self.messageTableView];
+    
+    
+    /* defaults */
+    self.marginBottom = 0;
+    self.backgroundView = nil;
+    self.backgroundColor = [UIColor clearColor];
+    self.rowHeight = ROW_HEIGHT;
+    self.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.defaultMinDuration = MIN_DURATION;
+    self.defaultMaxDuration = MAX_DURATION;
+    
+    /* cell defaults */
+    self.font = [UIFont boldSystemFontOfSize:14.0f];
+    self.textColor = [UIColor whiteColor];
+    self.messageShadowColor = [UIColor blackColor];
+    self.messageShadowOffset = CGSizeMake(0, 2);
+    self.messageGradientColors = @[
+                                   (id)[UIColor colorWithWhite:0 alpha:0.2].CGColor,
+                                   (id)[UIColor colorWithWhite:0 alpha:0.4].CGColor
+                                   ];
+    self.imageColor = nil;
+    self.hideButtonColor = [UIColor colorWithWhite:1 alpha:0.8];
     
     return self;
 }
 
+#pragma mark - Properties
+
+- (CGFloat)marginBottom
+{
+    return _marginBottom;
+}
 - (void)setMarginBottom:(CGFloat)marginBottom
 {
     _marginBottom = marginBottom;
     [self adjustFrame];
 }
 
-- (void)adjustFrame {
-    if (self.messageTableView.superview) {
-        CGRect frame = self.messageTableView.superview.bounds;
-        frame.origin.y = frame.size.height - self.marginBottom;
-        frame.size.height = 0.0f;
-        
-        self.messageTableView.frame = frame;
-    }
+- (CGFloat)rowHeight
+{
+    return self.messageTableView.rowHeight;
+}
+- (void)setRowHeight:(CGFloat)rowHeight
+{
+    self.messageTableView.rowHeight = rowHeight;
 }
 
+- (UIView *)backgroundView
+{
+    return self.messageTableView.backgroundView;
+}
+- (void)setBackgroundView:(UIView *)backgroundView
+{
+    self.messageTableView.backgroundView = backgroundView;
+}
+
+- (UIColor *)backgroundColor
+{
+    return self.messageTableView.backgroundColor;
+}
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    self.messageTableView.backgroundColor = backgroundColor;
+}
+
+- (UITableViewCellSeparatorStyle)separatorStyle
+{
+    return self.messageTableView.separatorStyle;
+}
+- (void)setSeparatorStyle:(UITableViewCellSeparatorStyle)separatorStyle
+{
+    self.messageTableView.separatorStyle = separatorStyle;
+}
 
 #pragma mark - messge queue
 - (JPMessageID)showMessage:(NSString *)text type:(JPMessageType)type
@@ -88,8 +138,8 @@ static NSString *cellIdentifier = @"MessageCell";
     message.delegate = self;
     message.type = type;
     message.text = text;
-    message.minDuration = (isLoading) ? MIN_DURATION : MIN_DURATION;
-    message.maxDuration = (isLoading) ? kJPMessageDurationNotSet : MAX_DURATION;
+    message.minDuration = (isLoading) ? self.defaultMinDuration : self.defaultMinDuration;
+    message.maxDuration = (isLoading) ? kJPMessageDurationNotSet : self.defaultMaxDuration;
     
     return [self showMessage:message];
 }
@@ -114,6 +164,7 @@ static NSString *cellIdentifier = @"MessageCell";
         [self.messageQueue addObject:message];
         NSIndexPath *indexPath = [self indexPathForMessage:message];
         [self debugLog:[NSString stringWithFormat:@"number of rows: %d", [self.messageTableView numberOfRowsInSection:0]]];
+        
         
         [self adjustTableViewHeight];
         
@@ -164,9 +215,11 @@ static NSString *cellIdentifier = @"MessageCell";
             [self.messageQueue removeObject:message];
             
             
+            
             [self.messageTableView beginUpdates];
             [self.messageTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [self.messageTableView endUpdates];
+            
             
             [message didHide];
             
@@ -281,6 +334,17 @@ static NSString *cellIdentifier = @"MessageCell";
     
 }
 
+- (void)adjustFrame {
+    if (self.messageTableView.superview) {
+        CGRect frame = self.messageTableView.superview.bounds;
+        frame.origin.y = frame.size.height - self.marginBottom;
+        frame.size.height = 0.0f;
+        
+        self.messageTableView.frame = frame;
+    }
+}
+
+
 #pragma mark - mesage ID
 
 - (JPMessage *)messageWithID:(JPMessageID)messageID
@@ -328,9 +392,17 @@ static NSString *cellIdentifier = @"MessageCell";
         cell = (JPMessageCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         
         if (cell == nil) {
-            cell = [[JPMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-            //cell.frame = CGRectMake(0.0, 0.0, self.messageTableView.bounds.size.width, self.messageTableView.rowHeight);
             
+            JPMessageCell *messageCell = [[JPMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+
+            messageCell.font = self.font;
+            messageCell.textColor = self.textColor;
+            messageCell.shadowColor = self.messageShadowColor;
+            messageCell.shadowOffset = self.messageShadowOffset;
+            messageCell.gradientColors = self.messageGradientColors;
+            messageCell.hideButtonColor = self.hideButtonColor;
+            messageCell.imageColor = self.imageColor;
+            cell = messageCell;
         }
 	} 
 	
@@ -369,6 +441,7 @@ static NSString *cellIdentifier = @"MessageCell";
 {
     [self adjustTableViewHeight];
 }
+
 
 #pragma mark - debug
 

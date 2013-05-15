@@ -16,7 +16,25 @@
 
 
 @property (nonatomic, assign) id<JPMessageHandlerDelegate> delegate;
+
 @property (nonatomic, assign) CGFloat marginBottom;
+@property (nonatomic, assign) CGFloat rowHeight;
+@property (nonatomic, assign) UITableViewCellSeparatorStyle separatorStyle;
+@property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong) UIColor *backgroundColor;
+
+@property (nonatomic, strong) UIColor *messageShadowColor;
+@property (nonatomic, assign) CGSize messageShadowOffset;
+@property (nonatomic, strong) NSArray *messageGradientColors;
+@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) UIColor *textColor;
+
+@property (nonatomic, strong) UIColor *hideButtonColor;
+@property (nonatomic, strong) UIColor *imageColor;
+
+@property (nonatomic, assign) NSTimeInterval defaultMinDuration;
+@property (nonatomic, assign) NSTimeInterval defaultMaxDuration;
+
 
 - (id)initWithSuperview:(UIView *)superview;
 

@@ -40,6 +40,7 @@ static const NSTimeInterval kJPMessageDurationNotSet = 0;
 @property (nonatomic, assign) JPMessageID messageID;
 @property (nonatomic, strong) NSDate *showTime;
 
+@property (nonatomic, readonly) BOOL onScreen;
 @property (nonatomic, readonly) BOOL messageIDSet;
 @property (nonatomic, readonly) BOOL minDurationSet;
 @property (nonatomic, readonly) BOOL maxDurationSet;
