@@ -11,7 +11,7 @@ _**Important note if your project doesn't use ARC**: you must add the `-fobjc-ar
 
 ## Usage
 
-(see sample Xcode project in `/JPMessageDemo`)
+(see sample Xcode project in `/Demo`)
 
 ### Init
 In `viewDidLoad`

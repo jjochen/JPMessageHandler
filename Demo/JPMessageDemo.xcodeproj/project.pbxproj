@@ -22,12 +22,12 @@
 		19CF450D1756015E00ADE858 /* JPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF45001756015E00ADE858 /* JPMessage.m */; };
 		19CF450E1756015E00ADE858 /* JPMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF45021756015E00ADE858 /* JPMessageCell.m */; };
 		19CF450F1756015E00ADE858 /* JPMessageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF45041756015E00ADE858 /* JPMessageHandler.m */; };
-		19CF45101756015E00ADE858 /* message_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF45051756015E00ADE858 /* message_error.png */; };
-		19CF45111756015E00ADE858 /* message_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF45061756015E00ADE858 /* message_error@2x.png */; };
-		19CF45121756015E00ADE858 /* message_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF45071756015E00ADE858 /* message_warning.png */; };
-		19CF45131756015E00ADE858 /* message_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF45081756015E00ADE858 /* message_warning@2x.png */; };
 		19CF45141756015E00ADE858 /* UIImage+Tinting.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF450A1756015E00ADE858 /* UIImage+Tinting.m */; };
 		19CF45151756015E00ADE858 /* JPXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF450C1756015E00ADE858 /* JPXButton.m */; };
+		19CF451B17560A7F00ADE858 /* message_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF451717560A7F00ADE858 /* message_error.png */; };
+		19CF451C17560A7F00ADE858 /* message_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF451817560A7F00ADE858 /* message_error@2x.png */; };
+		19CF451D17560A7F00ADE858 /* message_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF451917560A7F00ADE858 /* message_warning.png */; };
+		19CF451E17560A7F00ADE858 /* message_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF451A17560A7F00ADE858 /* message_warning@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,14 +54,14 @@
 		19CF45021756015E00ADE858 /* JPMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMessageCell.m; sourceTree = "<group>"; };
 		19CF45031756015E00ADE858 /* JPMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMessageHandler.h; sourceTree = "<group>"; };
 		19CF45041756015E00ADE858 /* JPMessageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMessageHandler.m; sourceTree = "<group>"; };
-		19CF45051756015E00ADE858 /* message_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_error.png; sourceTree = "<group>"; };
-		19CF45061756015E00ADE858 /* message_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_error@2x.png"; sourceTree = "<group>"; };
-		19CF45071756015E00ADE858 /* message_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_warning.png; sourceTree = "<group>"; };
-		19CF45081756015E00ADE858 /* message_warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_warning@2x.png"; sourceTree = "<group>"; };
 		19CF45091756015E00ADE858 /* UIImage+Tinting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tinting.h"; sourceTree = "<group>"; };
 		19CF450A1756015E00ADE858 /* UIImage+Tinting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tinting.m"; sourceTree = "<group>"; };
 		19CF450B1756015E00ADE858 /* JPXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPXButton.h; sourceTree = "<group>"; };
 		19CF450C1756015E00ADE858 /* JPXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPXButton.m; sourceTree = "<group>"; };
+		19CF451717560A7F00ADE858 /* message_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_error.png; sourceTree = "<group>"; };
+		19CF451817560A7F00ADE858 /* message_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_error@2x.png"; sourceTree = "<group>"; };
+		19CF451917560A7F00ADE858 /* message_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_warning.png; sourceTree = "<group>"; };
+		19CF451A17560A7F00ADE858 /* message_warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_warning@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,17 +144,25 @@
 				19CF45021756015E00ADE858 /* JPMessageCell.m */,
 				19CF45031756015E00ADE858 /* JPMessageHandler.h */,
 				19CF45041756015E00ADE858 /* JPMessageHandler.m */,
-				19CF45051756015E00ADE858 /* message_error.png */,
-				19CF45061756015E00ADE858 /* message_error@2x.png */,
-				19CF45071756015E00ADE858 /* message_warning.png */,
-				19CF45081756015E00ADE858 /* message_warning@2x.png */,
 				19CF45091756015E00ADE858 /* UIImage+Tinting.h */,
 				19CF450A1756015E00ADE858 /* UIImage+Tinting.m */,
 				19CF450B1756015E00ADE858 /* JPXButton.h */,
 				19CF450C1756015E00ADE858 /* JPXButton.m */,
+				19CF451617560A7F00ADE858 /* Resources */,
 			);
 			name = JPMessageHandler;
 			path = ../../JPMessageHandler;
+			sourceTree = "<group>";
+		};
+		19CF451617560A7F00ADE858 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				19CF451717560A7F00ADE858 /* message_error.png */,
+				19CF451817560A7F00ADE858 /* message_error@2x.png */,
+				19CF451917560A7F00ADE858 /* message_warning.png */,
+				19CF451A17560A7F00ADE858 /* message_warning@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,10 +222,10 @@
 				194A2D661733CC3A00742C00 /* Default@2x.png in Resources */,
 				194A2D681733CC3A00742C00 /* Default-568h@2x.png in Resources */,
 				194A2D6E1733CC3A00742C00 /* JPViewController.xib in Resources */,
-				19CF45101756015E00ADE858 /* message_error.png in Resources */,
-				19CF45111756015E00ADE858 /* message_error@2x.png in Resources */,
-				19CF45121756015E00ADE858 /* message_warning.png in Resources */,
-				19CF45131756015E00ADE858 /* message_warning@2x.png in Resources */,
+				19CF451B17560A7F00ADE858 /* message_error.png in Resources */,
+				19CF451C17560A7F00ADE858 /* message_error@2x.png in Resources */,
+				19CF451D17560A7F00ADE858 /* message_warning.png in Resources */,
+				19CF451E17560A7F00ADE858 /* message_warning@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +331,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JPMessageDemo/JPMessageDemo-Prefix.pch";
 				INFOPLIST_FILE = "JPMessageDemo/JPMessageDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -334,6 +343,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JPMessageDemo/JPMessageDemo-Prefix.pch";
 				INFOPLIST_FILE = "JPMessageDemo/JPMessageDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
