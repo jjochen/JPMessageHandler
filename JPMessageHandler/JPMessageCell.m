@@ -10,7 +10,7 @@
 #import "JPMessageCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "JPMessage.h"
-#import "XButton.h"
+#import "JPXButton.h"
 #import "UIImage+Tinting.h"
 
 
@@ -29,7 +29,7 @@
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UIImageView *warningImage;
 @property (nonatomic, strong) UIImageView *errorImage;
-@property (nonatomic, strong) XButton *xButton;
+@property (nonatomic, strong) JPXButton *xButton;
 
 @end
 
@@ -85,7 +85,7 @@
     self.activityIndicator.layer.rasterizationScale = [UIScreen mainScreen].scale;
     self.activityIndicator.clipsToBounds = NO;
     
-    self.xButton = [[XButton alloc] initWithFrame:CGRectZero];
+    self.xButton = [[JPXButton alloc] initWithFrame:CGRectZero];
     self.xButton.color = [UIColor colorWithWhite:0.9 alpha:0.9];
     [self.xButton addTarget:self action:@selector(hide:) forControlEvents:UIControlEventTouchUpInside];
     

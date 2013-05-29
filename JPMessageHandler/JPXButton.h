@@ -1,6 +1,5 @@
 //
-//  xButton.h
-//  iMajor
+//  JPXButton.h
 //
 //  Created by Jochen Pfeiffer on 26.03.11.
 //  Copyright 2011 Jochen Pfeiffer. All rights reserved.
@@ -11,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface XButton : UIButton {
+@interface JPXButton : UIButton {
     UIColor *_color;
     UIColor *_shadowColor;
     CGSize _shadowOffset;

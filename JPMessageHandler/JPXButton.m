@@ -1,6 +1,5 @@
 //
-//  xButton.m
-//  iMajor
+//  JPXButton.m
 //
 //  Created by Jochen Pfeiffer on 26.03.11.
 //  Copyright 2011 Jochen Pfeiffer. All rights reserved.
@@ -8,10 +7,10 @@
 //  https://github.com/jjochen/JPMessageHandler
 //
 
-#import "XButton.h"
+#import "JPXButton.h"
 
 
-@implementation XButton
+@implementation JPXButton
 
 - (id)initWithFrame:(CGRect)frame
 {

@@ -19,15 +19,15 @@
 		194A2D6B1733CC3A00742C00 /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 194A2D6A1733CC3A00742C00 /* JPViewController.m */; };
 		194A2D6E1733CC3A00742C00 /* JPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 194A2D6C1733CC3A00742C00 /* JPViewController.xib */; };
 		194A2D9F1733D08600742C00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194A2D9E1733D08600742C00 /* QuartzCore.framework */; };
-		194A2DAD1733EC4400742C00 /* JPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 194A2DA21733EC4400742C00 /* JPMessage.m */; };
-		194A2DAE1733EC4400742C00 /* JPMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 194A2DA41733EC4400742C00 /* JPMessageCell.m */; };
-		194A2DAF1733EC4400742C00 /* JPMessageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 194A2DA61733EC4400742C00 /* JPMessageHandler.m */; };
-		194A2DB01733EC4400742C00 /* message_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 194A2DA71733EC4400742C00 /* message_error.png */; };
-		194A2DB11733EC4400742C00 /* message_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 194A2DA81733EC4400742C00 /* message_error@2x.png */; };
-		194A2DB21733EC4400742C00 /* message_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 194A2DA91733EC4400742C00 /* message_warning.png */; };
-		194A2DB31733EC4400742C00 /* message_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 194A2DAA1733EC4400742C00 /* message_warning@2x.png */; };
-		194A2DB41733EC4400742C00 /* XButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 194A2DAC1733EC4400742C00 /* XButton.m */; };
-		19574BCF1743999E0087E209 /* UIImage+Tinting.m in Sources */ = {isa = PBXBuildFile; fileRef = 19574BCE1743999D0087E209 /* UIImage+Tinting.m */; };
+		19CF450D1756015E00ADE858 /* JPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF45001756015E00ADE858 /* JPMessage.m */; };
+		19CF450E1756015E00ADE858 /* JPMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF45021756015E00ADE858 /* JPMessageCell.m */; };
+		19CF450F1756015E00ADE858 /* JPMessageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF45041756015E00ADE858 /* JPMessageHandler.m */; };
+		19CF45101756015E00ADE858 /* message_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF45051756015E00ADE858 /* message_error.png */; };
+		19CF45111756015E00ADE858 /* message_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF45061756015E00ADE858 /* message_error@2x.png */; };
+		19CF45121756015E00ADE858 /* message_warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF45071756015E00ADE858 /* message_warning.png */; };
+		19CF45131756015E00ADE858 /* message_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19CF45081756015E00ADE858 /* message_warning@2x.png */; };
+		19CF45141756015E00ADE858 /* UIImage+Tinting.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF450A1756015E00ADE858 /* UIImage+Tinting.m */; };
+		19CF45151756015E00ADE858 /* JPXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19CF450C1756015E00ADE858 /* JPXButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,20 +48,20 @@
 		194A2D6A1733CC3A00742C00 /* JPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPViewController.m; sourceTree = "<group>"; };
 		194A2D6D1733CC3A00742C00 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/JPViewController.xib; sourceTree = "<group>"; };
 		194A2D9E1733D08600742C00 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		194A2DA11733EC4400742C00 /* JPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMessage.h; sourceTree = "<group>"; };
-		194A2DA21733EC4400742C00 /* JPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMessage.m; sourceTree = "<group>"; };
-		194A2DA31733EC4400742C00 /* JPMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMessageCell.h; sourceTree = "<group>"; };
-		194A2DA41733EC4400742C00 /* JPMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMessageCell.m; sourceTree = "<group>"; };
-		194A2DA51733EC4400742C00 /* JPMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMessageHandler.h; sourceTree = "<group>"; };
-		194A2DA61733EC4400742C00 /* JPMessageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMessageHandler.m; sourceTree = "<group>"; };
-		194A2DA71733EC4400742C00 /* message_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_error.png; sourceTree = "<group>"; };
-		194A2DA81733EC4400742C00 /* message_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_error@2x.png"; sourceTree = "<group>"; };
-		194A2DA91733EC4400742C00 /* message_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_warning.png; sourceTree = "<group>"; };
-		194A2DAA1733EC4400742C00 /* message_warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_warning@2x.png"; sourceTree = "<group>"; };
-		194A2DAB1733EC4400742C00 /* XButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XButton.h; sourceTree = "<group>"; };
-		194A2DAC1733EC4400742C00 /* XButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XButton.m; sourceTree = "<group>"; };
-		19574BCD1743999D0087E209 /* UIImage+Tinting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tinting.h"; sourceTree = "<group>"; };
-		19574BCE1743999D0087E209 /* UIImage+Tinting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tinting.m"; sourceTree = "<group>"; };
+		19CF44FF1756015E00ADE858 /* JPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMessage.h; sourceTree = "<group>"; };
+		19CF45001756015E00ADE858 /* JPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMessage.m; sourceTree = "<group>"; };
+		19CF45011756015E00ADE858 /* JPMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMessageCell.h; sourceTree = "<group>"; };
+		19CF45021756015E00ADE858 /* JPMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMessageCell.m; sourceTree = "<group>"; };
+		19CF45031756015E00ADE858 /* JPMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPMessageHandler.h; sourceTree = "<group>"; };
+		19CF45041756015E00ADE858 /* JPMessageHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPMessageHandler.m; sourceTree = "<group>"; };
+		19CF45051756015E00ADE858 /* message_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_error.png; sourceTree = "<group>"; };
+		19CF45061756015E00ADE858 /* message_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_error@2x.png"; sourceTree = "<group>"; };
+		19CF45071756015E00ADE858 /* message_warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_warning.png; sourceTree = "<group>"; };
+		19CF45081756015E00ADE858 /* message_warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message_warning@2x.png"; sourceTree = "<group>"; };
+		19CF45091756015E00ADE858 /* UIImage+Tinting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tinting.h"; sourceTree = "<group>"; };
+		19CF450A1756015E00ADE858 /* UIImage+Tinting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tinting.m"; sourceTree = "<group>"; };
+		19CF450B1756015E00ADE858 /* JPXButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPXButton.h; sourceTree = "<group>"; };
+		19CF450C1756015E00ADE858 /* JPXButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPXButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 		194A2D571733CC3A00742C00 /* JPMessageDemo */ = {
 			isa = PBXGroup;
 			children = (
-				194A2DA01733EC4300742C00 /* JPMessageHandler */,
+				19CF44FE1756015E00ADE858 /* JPMessageHandler */,
 				194A2D601733CC3A00742C00 /* JPAppDelegate.h */,
 				194A2D611733CC3A00742C00 /* JPAppDelegate.m */,
 				194A2D691733CC3A00742C00 /* JPViewController.h */,
@@ -135,26 +135,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		194A2DA01733EC4300742C00 /* JPMessageHandler */ = {
+		19CF44FE1756015E00ADE858 /* JPMessageHandler */ = {
 			isa = PBXGroup;
 			children = (
-				194A2DA11733EC4400742C00 /* JPMessage.h */,
-				194A2DA21733EC4400742C00 /* JPMessage.m */,
-				194A2DA31733EC4400742C00 /* JPMessageCell.h */,
-				194A2DA41733EC4400742C00 /* JPMessageCell.m */,
-				194A2DA51733EC4400742C00 /* JPMessageHandler.h */,
-				194A2DA61733EC4400742C00 /* JPMessageHandler.m */,
-				194A2DA71733EC4400742C00 /* message_error.png */,
-				194A2DA81733EC4400742C00 /* message_error@2x.png */,
-				194A2DA91733EC4400742C00 /* message_warning.png */,
-				194A2DAA1733EC4400742C00 /* message_warning@2x.png */,
-				194A2DAB1733EC4400742C00 /* XButton.h */,
-				194A2DAC1733EC4400742C00 /* XButton.m */,
-				19574BCD1743999D0087E209 /* UIImage+Tinting.h */,
-				19574BCE1743999D0087E209 /* UIImage+Tinting.m */,
+				19CF44FF1756015E00ADE858 /* JPMessage.h */,
+				19CF45001756015E00ADE858 /* JPMessage.m */,
+				19CF45011756015E00ADE858 /* JPMessageCell.h */,
+				19CF45021756015E00ADE858 /* JPMessageCell.m */,
+				19CF45031756015E00ADE858 /* JPMessageHandler.h */,
+				19CF45041756015E00ADE858 /* JPMessageHandler.m */,
+				19CF45051756015E00ADE858 /* message_error.png */,
+				19CF45061756015E00ADE858 /* message_error@2x.png */,
+				19CF45071756015E00ADE858 /* message_warning.png */,
+				19CF45081756015E00ADE858 /* message_warning@2x.png */,
+				19CF45091756015E00ADE858 /* UIImage+Tinting.h */,
+				19CF450A1756015E00ADE858 /* UIImage+Tinting.m */,
+				19CF450B1756015E00ADE858 /* JPXButton.h */,
+				19CF450C1756015E00ADE858 /* JPXButton.m */,
 			);
-			path = JPMessageHandler;
-			sourceTree = SOURCE_ROOT;
+			name = JPMessageHandler;
+			path = ../../JPMessageHandler;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -213,10 +214,10 @@
 				194A2D661733CC3A00742C00 /* Default@2x.png in Resources */,
 				194A2D681733CC3A00742C00 /* Default-568h@2x.png in Resources */,
 				194A2D6E1733CC3A00742C00 /* JPViewController.xib in Resources */,
-				194A2DB01733EC4400742C00 /* message_error.png in Resources */,
-				194A2DB11733EC4400742C00 /* message_error@2x.png in Resources */,
-				194A2DB21733EC4400742C00 /* message_warning.png in Resources */,
-				194A2DB31733EC4400742C00 /* message_warning@2x.png in Resources */,
+				19CF45101756015E00ADE858 /* message_error.png in Resources */,
+				19CF45111756015E00ADE858 /* message_error@2x.png in Resources */,
+				19CF45121756015E00ADE858 /* message_warning.png in Resources */,
+				19CF45131756015E00ADE858 /* message_warning@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,11 +231,11 @@
 				194A2D5E1733CC3A00742C00 /* main.m in Sources */,
 				194A2D621733CC3A00742C00 /* JPAppDelegate.m in Sources */,
 				194A2D6B1733CC3A00742C00 /* JPViewController.m in Sources */,
-				194A2DAD1733EC4400742C00 /* JPMessage.m in Sources */,
-				194A2DAE1733EC4400742C00 /* JPMessageCell.m in Sources */,
-				194A2DAF1733EC4400742C00 /* JPMessageHandler.m in Sources */,
-				194A2DB41733EC4400742C00 /* XButton.m in Sources */,
-				19574BCF1743999E0087E209 /* UIImage+Tinting.m in Sources */,
+				19CF450D1756015E00ADE858 /* JPMessage.m in Sources */,
+				19CF450E1756015E00ADE858 /* JPMessageCell.m in Sources */,
+				19CF450F1756015E00ADE858 /* JPMessageHandler.m in Sources */,
+				19CF45141756015E00ADE858 /* UIImage+Tinting.m in Sources */,
+				19CF45151756015E00ADE858 /* JPXButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

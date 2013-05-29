@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @class JPMessage;
-@class XButton;
+@class JPXButton;
 
 @interface JPMessageCell : UITableViewCell
 
